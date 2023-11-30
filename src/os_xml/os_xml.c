@@ -288,7 +288,7 @@ static int _ReadElem(unsigned int parent, OS_XML *_lxml, unsigned int recursion_
 
     // consume all the spaces, tabs or new line characters
     while ((c = xml_getc_fun(_lxml->fp, _lxml)) != cmp) {
-        if(isspace(c) || c == '\n' || c == '\r') {
+        if(isspace(c)) {
             continue;
         } else {
             break;
