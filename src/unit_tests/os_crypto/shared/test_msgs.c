@@ -274,8 +274,8 @@ void test_encrypt_by_method_blowfish(void **state){
     memset(buffer1, 0, sizeof(buffer1));
     memset(buffer2, 0, sizeof(buffer2));
 
-    assert_int_equal(doEncryptByMethod(string, buffer1, key, strlen(string), OS_ENCRYPT ,W_METH_BLOWFISH), 1);
-    assert_int_equal(doEncryptByMethod(buffer1, buffer2, key, strlen(buffer1), OS_DECRYPT ,W_METH_BLOWFISH), 1);
+    assert_int_equal(doEncryptByMethod(string, buffer1, key, buffersize, OS_ENCRYPT ,W_METH_BLOWFISH), 1);
+    assert_int_equal(doEncryptByMethod(buffer1, buffer2, key, buffersize, OS_DECRYPT ,W_METH_BLOWFISH), 1);
 
     assert_string_equal(buffer2, string);
 }
