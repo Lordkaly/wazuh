@@ -4,8 +4,8 @@
 
 import logging
 
-from connexion.lifecycle import ConnexionResponse
 from connexion import request
+from connexion.lifecycle import ConnexionResponse
 
 from api.controllers.util import json_response, JSON_CONTENT_TYPE
 from api.models.active_response_model import ActiveResponseModel
