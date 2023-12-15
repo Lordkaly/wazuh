@@ -5,8 +5,8 @@
 import logging
 from typing import Union
 
-from connexion.lifecycle import ConnexionResponse
 from connexion import request
+from connexion.lifecycle import ConnexionResponse
 
 from api.models.agent_added_model import AgentAddedModel
 from api.models.agent_inserted_model import AgentInsertedModel
