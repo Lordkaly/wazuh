@@ -83,7 +83,7 @@ async def get_lists(pretty: bool = False, wait_for_complete: bool = False, offse
 
 
 async def get_file(pretty: bool = False, wait_for_complete: bool = False, filename: str = None,
-                   raw: bool = False) -> Union[ConnexionResponse, ConnexionResponse]:
+                   raw: bool = False) -> ConnexionResponse:
     """Get content of one CDB list file, in raw or dict format.
 
     Parameters
