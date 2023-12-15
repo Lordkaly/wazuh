@@ -43,7 +43,7 @@ inflection==0.3.1
 itsdangerous==2.0.0
 Jinja2==3.0.0
 jmespath==0.9.5
-jsonschema=4.20.0
+jsonschema==4.20.0
 libcst==0.3.20
 MarkupSafe==2.1.2
 more-itertools==8.2.0
