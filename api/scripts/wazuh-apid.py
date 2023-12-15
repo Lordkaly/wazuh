@@ -255,8 +255,7 @@ def start(params):
 
 
 def print_version():
-    print("\n{} {} - {}\n\n{}".format(__wazuh_name__,
-          __version__, __author__, __licence__))
+    print('\n{} {} - {}\n\n{}'.format(__wazuh_name__, __version__, __author__, __licence__))
 
 
 def test_config(config_file: str):
