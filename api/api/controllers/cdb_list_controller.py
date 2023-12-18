@@ -3,12 +3,10 @@
 # This program is a free software; you can redistribute it and/or modify it under the terms of GPLv2
 
 import logging
-from typing import Union
 
 from connexion import request
 from connexion.lifecycle import ConnexionResponse
 
-from connexion import request
 from api.controllers.util import json_response
 from api.models.base_model_ import Body
 from api.util import remove_nones_to_dict, parse_api_param, raise_if_exc
