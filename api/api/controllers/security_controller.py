@@ -5,8 +5,8 @@
 import logging
 import re
 
-from connexion.lifecycle import ConnexionResponse
 from connexion import request
+from connexion.lifecycle import ConnexionResponse
 
 from api.encoder import dumps
 from api.models.security_token_response_model import TokenResponseModel
