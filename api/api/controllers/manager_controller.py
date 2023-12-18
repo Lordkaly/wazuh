@@ -6,8 +6,8 @@ import datetime
 import logging
 from typing import Union
 
-from connexion.lifecycle import ConnexionResponse
 from connexion import request
+from connexion.lifecycle import ConnexionResponse
 
 import wazuh.manager as manager
 import wazuh.stats as stats
