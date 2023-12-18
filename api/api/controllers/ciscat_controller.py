@@ -5,8 +5,8 @@
 import logging
 from typing import List
 
-from connexion.lifecycle import ConnexionResponse
 from connexion import request
+from connexion.lifecycle import ConnexionResponse
 
 from api.controllers.util import json_response
 from api.util import remove_nones_to_dict, parse_api_param, raise_if_exc
