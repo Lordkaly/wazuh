@@ -213,7 +213,7 @@ async def get_decoders_parents(pretty: bool = False, wait_for_complete: bool = F
 
 async def get_file(pretty: bool = False, wait_for_complete: bool = False, 
                    filename: str = None, relative_dirname: str = None, 
-                   raw: bool = False) -> Union[ConnexionResponse, ConnexionResponse]:
+                   raw: bool = False) -> ConnexionResponse:
     """Get decoder file content.
 
     Parameters
