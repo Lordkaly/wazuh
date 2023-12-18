@@ -84,7 +84,7 @@ async def get_info(pretty: bool = False, wait_for_complete: bool = False) -> Con
 
 async def get_configuration(pretty: bool = False, wait_for_complete: bool = False, section: str = None,
                             field: str = None, raw: bool = False,
-                            distinct: bool = False) -> Union[ConnexionResponse, ConnexionResponse]:
+                            distinct: bool = False) -> ConnexionResponse:
     """Get manager's or local_node's configuration (ossec.conf)
 
     Parameters
