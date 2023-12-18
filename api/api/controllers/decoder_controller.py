@@ -5,8 +5,8 @@
 import logging
 from typing import Union
 
-from connexion.lifecycle import ConnexionResponse
 from connexion import request
+from connexion.lifecycle import ConnexionResponse
 
 from api.controllers.util import json_response, XML_CONTENT_TYPE
 from api.models.base_model_ import Body
