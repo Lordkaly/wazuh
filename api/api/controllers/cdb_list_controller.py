@@ -97,10 +97,10 @@ async def get_file(pretty: bool = False, wait_for_complete: bool = False, filena
 
     Returns
     -------
-    ConnexionResponse or ConnexionResponse
-        Depending on the `raw` parameter, it will return a ConnexionResponse object or a ConnexionResponse object:
+    ConnexionResponse
+        Depending on the `raw` parameter, it will return a ConnexionResponse object:
             raw=True            -> ConnexionResponse (text/plain)
-            raw=False (default) -> ConnexionResponse      (application/json)
+            raw=False (default) -> ConnexionResponse (application/json)
         If any exception was raised, it will return a ConnexionResponse with details.
     """
     f_kwargs = {'filename': filename, 'raw': raw}

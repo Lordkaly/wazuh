@@ -4,7 +4,6 @@
 
 import datetime
 import logging
-from typing import Union
 
 from connexion import request
 from connexion.lifecycle import ConnexionResponse
@@ -358,8 +357,8 @@ async def get_configuration_node(node_id: str, pretty: bool = False, wait_for_co
 
     Returns
     -------
-    ConnexionResponse or ConnexionResponse
-        Depending on the `raw` parameter, it will return a ConnexionResponse object or a ConnexionResponse object:
+    ConnexionResponse
+        Depending on the `raw` parameter, it will return a ConnexionResponse object:
             raw=True            -> ConnexionResponse (application/xml)
             raw=False (default) -> ConnexionResponse (application/json)
         If any exception was raised, it will return a ConnexionResponse with details.
