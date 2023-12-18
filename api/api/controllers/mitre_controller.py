@@ -7,7 +7,6 @@ import logging
 from connexion import request
 from connexion.lifecycle import ConnexionResponse
 
-from connexion import request
 from api.controllers.util import json_response
 from api.util import raise_if_exc, parse_api_param, remove_nones_to_dict
 from wazuh import mitre
