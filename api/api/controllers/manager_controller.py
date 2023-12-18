@@ -104,8 +104,8 @@ async def get_configuration(pretty: bool = False, wait_for_complete: bool = Fals
 
     Returns
     -------
-    ConnexionResponse or ConnexionResponse
-        Depending on the `raw` parameter, it will return a ConnexionResponse object or a ConnexionResponse object:
+    ConnexionResponse
+        Depending on the `raw` parameter, it will return a ConnexionResponse object:
             raw=True            -> ConnexionResponse (application/xml)
             raw=False (default) -> ConnexionResponse (application/json)
         If any exception was raised, it will return a ConnexionResponse with details.

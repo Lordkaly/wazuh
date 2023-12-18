@@ -8,12 +8,15 @@ import time
 import contextlib
 import logging
 
-from starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoint
-from starlette.requests import Request
-from starlette.responses import Response
+from secure import Secure, ContentSecurityPolicy, XFrameOptions, Server
+
 from connexion import ConnexionMiddleware
 from connexion.lifecycle import ConnexionRequest
-from secure import Secure, ContentSecurityPolicy, XFrameOptions, Server
+
+from starlette.requests import Request
+from starlette.responses import Response
+from starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoint
+
 from wazuh.core.exception import WazuhPermissionError, WazuhTooManyRequests
 from wazuh.core.utils import get_utc_now
 
@@ -31,8 +34,7 @@ RUN_AS_LOGIN_ENDPOINT = "/security/user/authenticate/run_as"
 
 # API secure headers
 server = Server().set("Wazuh")
-csp = ContentSecurityPolicy()
-csp.default_src('self')
+csp = ContentSecurityPolicy().set('none')
 xfo = XFrameOptions().deny()
 secure_headers = Secure(server=server, csp=csp, xfo=xfo)
 

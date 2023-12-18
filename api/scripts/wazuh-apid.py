@@ -13,28 +13,26 @@ import asyncio
 import logging
 import logging.config
 import ssl
+import uvicorn
 
 from connexion import AsyncApp
 from connexion.options import SwaggerUIOptions
 from connexion.exceptions import Unauthorized, HTTPException, BadRequestProblem, ProblemException
 from connexion.middleware import MiddlewarePosition
-import uvicorn
 
 from starlette.middleware.cors import CORSMiddleware
 from content_size_limit_asgi import ContentSizeLimitMiddleware
 
 from jose import JWTError
 
-from api.constants import API_LOG_PATH
+from api import error_handler, __path__ as api_path
+from api.constants import API_LOG_PATH, CONFIG_FILE_PATH
 from api.api_exception import APIError
 from api.configuration import api_conf, read_yaml_config, security_conf, generate_private_key, \
     generate_self_signed_certificate
-from api import __path__ as api_path
-from api.constants import CONFIG_FILE_PATH
 from api.middlewares import SecureHeadersMiddleware, CheckRateLimitsMiddleware, \
     WazuhAccessLoggerMiddleware, lifespan_handler
 from api.util import APILoggerSize, to_relative_path
-from api import error_handler
 from api.uri_parser import APIUriParser
 
 from wazuh.rbac.orm import check_database_integrity

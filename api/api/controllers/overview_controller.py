@@ -4,9 +4,9 @@
 
 import logging
 
+from connexion import request
 from connexion.lifecycle import ConnexionResponse
 
-from connexion import request
 from api.controllers.util import json_response
 from api.util import raise_if_exc, remove_nones_to_dict
 from wazuh.agent import get_full_overview

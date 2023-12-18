@@ -4,11 +4,11 @@
 
 import logging
 
+from connexion import request
 from connexion.lifecycle import ConnexionResponse
 from wazuh.core.cluster.dapi.dapi import DistributedAPI
 from wazuh.event import send_event_to_analysisd
 
-from connexion import request
 from api.controllers.util import json_response, JSON_CONTENT_TYPE
 from api.models.base_model_ import Body
 from api.models.event_ingest_model import EventIngestModel
