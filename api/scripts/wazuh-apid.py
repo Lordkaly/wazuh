@@ -33,7 +33,6 @@ from api import __path__ as api_path
 from api.constants import CONFIG_FILE_PATH
 from api.middlewares import SecureHeadersMiddleware, CheckRateLimitsMiddleware, \
     WazuhAccessLoggerMiddleware, lifespan_handler
-# from api.signals import modify_response_headers
 from api.util import APILoggerSize, to_relative_path
 from api import error_handler
 from api.uri_parser import APIUriParser
