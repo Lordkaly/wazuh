@@ -6,8 +6,8 @@ import datetime
 import logging
 from typing import Union
 
-from connexion.lifecycle import ConnexionResponse
 from connexion import request
+from connexion.lifecycle import ConnexionResponse
 
 import wazuh.cluster as cluster
 import wazuh.core.common as common
