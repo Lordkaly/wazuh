@@ -269,7 +269,7 @@ async def get_rules_files(pretty: bool = False, wait_for_complete: bool = False,
 
 async def get_file(pretty: bool = False, wait_for_complete: bool = False, 
                    filename: str = None, relative_dirname: str = None, 
-                   raw: bool = False) -> Union[ConnexionResponse, ConnexionResponse]:
+                   raw: bool = False) -> ConnexionResponse:
     """Get rule file content.
 
     Parameters
