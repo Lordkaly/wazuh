@@ -338,7 +338,7 @@ async def get_info_node(node_id: str, pretty: bool = False, wait_for_complete: b
 
 async def get_configuration_node(node_id: str, pretty: bool = False, wait_for_complete: bool = False,
                                  section: str = None, field: str = None,
-                                 raw: bool = False) -> Union[ConnexionResponse, ConnexionResponse]:
+                                 raw: bool = False) -> ConnexionResponse:
     """Get a specified node's configuration (ossec.conf).
 
     Parameters
