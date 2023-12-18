@@ -28,7 +28,10 @@ from wazuh.core.common import wazuh_uid, wazuh_gid
 from wazuh.rbac.orm import AuthenticationManager, TokenManager, UserRolesManager
 from wazuh.rbac.preprocessor import optimize_resources
 
+INVALID_TOKEN = "Invalid token"
 pool = ThreadPoolExecutor(max_workers=1)
+
+
 
 
 def check_user_master(user: str, password: str) -> dict:
@@ -276,7 +279,7 @@ def decode_token(token: str) -> dict:
         data = raise_if_exc(pool.submit(asyncio.run, dapi.distribute_function()).result()).to_dict()
 
         if not data['result']['valid']:
-            raise Unauthorized("Invalid token")
+            raise Unauthorized(INVALID_TOKEN)
         payload['rbac_policies'] = data['result']['policies']
         payload['rbac_policies']['rbac_mode'] = payload.pop('rbac_mode')
 
@@ -297,4 +300,4 @@ def decode_token(token: str) -> dict:
 
         return payload
     except JWTError as exc:
-        raise Unauthorized("Invalid Token") from exc
+        raise Unauthorized(INVALID_TOKEN) from exc
