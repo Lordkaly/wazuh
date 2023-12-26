@@ -55,7 +55,7 @@ target_link_libraries(api
     schemf
     rbac::irbac
     api::iapi
-    builder2::ibuilder
+    builder::ibuilder
     logpar
 )
 
@@ -97,7 +97,7 @@ target_link_libraries(api_utest
     rbac::mocks
     api::mocks
     kvdb::mocks
-    builder2::mocks
+    builder::mocks
 )
 gtest_discover_tests(api_utest)
 endif(ENGINE_BUILD_TEST)

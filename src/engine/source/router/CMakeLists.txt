@@ -14,7 +14,7 @@ target_link_libraries(router
     base
     json
     store::istore
-    builder2::ibuilder
+    builder::ibuilder
 )
 
 target_include_directories(router
