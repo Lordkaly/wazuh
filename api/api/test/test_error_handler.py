@@ -9,7 +9,8 @@ from copy import copy
 
 from connexion.exceptions import HTTPException, ProblemException, BadRequestProblem, Unauthorized
 from api.error_handler import _cleanup_detail_field, prevent_bruteforce_attack, jwt_error_handler, \
-    http_error_handler, problem_error_handler, bad_request_error_handler, unauthorized_error_handler
+    http_error_handler, problem_error_handler, bad_request_error_handler, unauthorized_error_handler, \
+    ERROR_CONTENT_TYPE
 
 
 @pytest.fixture
@@ -98,7 +99,7 @@ async def test_unauthorized_error_handler(path, method, mock_request):
     body = json.loads(response.body)
     assert body == problem
     assert response.status_code == exc.status_code
-    assert response.content_type == "application/problem+json"
+    assert response.content_type == ERROR_CONTENT_TYPE
 
 
 @pytest.mark.asyncio
@@ -113,7 +114,7 @@ async def test_jwt_error_handler():
     body = json.loads(response.body)
     assert body == problem
     assert response.status_code == 401
-    assert response.content_type == "application/problem+json"
+    assert response.content_type == ERROR_CONTENT_TYPE
 
 
 @pytest.mark.asyncio
@@ -130,7 +131,7 @@ async def test_http_error_handler(detail):
     body = json.loads(response.body)
     assert body == problem
     assert response.status_code == 401
-    assert response.content_type == "application/problem+json"
+    assert response.content_type == ERROR_CONTENT_TYPE
 
 
 @pytest.mark.asyncio
@@ -170,7 +171,7 @@ async def test_problem_error_handler(title, detail, ext, error_type):
     problem.update({'error': problem.pop('code')} if 'code' in problem else {})
 
     assert response.status_code == 400
-    assert response.content_type == "application/problem+json"
+    assert response.content_type == ERROR_CONTENT_TYPE
     assert body == problem
 
 
@@ -189,4 +190,4 @@ async def test_bad_request_error_handler(detail):
     body = json.loads(response.body)
     assert body == problem
     assert response.status_code == exc.status_code
-    assert response.content_type == "application/problem+json"
+    assert response.content_type == ERROR_CONTENT_TYPE

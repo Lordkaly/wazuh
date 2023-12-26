@@ -11,6 +11,8 @@ from api import configuration
 from api.middlewares import ip_block, ip_stats
 from wazuh.core.utils import get_utc_now
 
+ERROR_CONTENT_TYPE="application/problem+json; charset=utf-8"
+
 
 def prevent_bruteforce_attack(request: ConnexionRequest, attempts: int = 5):
     """Checks that the IPs that are requesting an API token do not do so repeatedly.
@@ -85,7 +87,7 @@ async def unauthorized_error_handler(request: ConnexionRequest,
         )
     return ConnexionResponse(status_code=exc.status_code,
                              body=json.dumps(problem),
-                             content_type="application/problem+json")
+                             content_type=ERROR_CONTENT_TYPE)
 
 
 async def bad_request_error_handler(_: Optional[ConnexionRequest], 
@@ -114,7 +116,7 @@ async def bad_request_error_handler(_: Optional[ConnexionRequest],
         problem['detail'] = exc.detail
     return ConnexionResponse(status_code=exc.status_code,
                              body=json.dumps(problem),
-                             content_type="application/problem+json")
+                             content_type=ERROR_CONTENT_TYPE)
 
 
 async def http_error_handler(_: Optional[ConnexionRequest],
@@ -143,7 +145,7 @@ async def http_error_handler(_: Optional[ConnexionRequest],
         problem['detail'] = exc.detail
     return ConnexionResponse(status_code=exc.status_code,
                              body=json.dumps(problem),
-                             content_type="application/problem+json")
+                             content_type=ERROR_CONTENT_TYPE)
 
 
 async def jwt_error_handler(_: Optional[ConnexionRequest] = None,
@@ -172,7 +174,7 @@ async def jwt_error_handler(_: Optional[ConnexionRequest] = None,
 
     return ConnexionResponse(status_code=401,
                              body=json.dumps(problem),
-                             content_type="application/problem+json")
+                             content_type=ERROR_CONTENT_TYPE)
 
 
 async def problem_error_handler(_: Optional[ConnexionRequest], 
@@ -210,4 +212,4 @@ async def problem_error_handler(_: Optional[ConnexionRequest],
 
     return  ConnexionResponse(body=json.dumps(problem),
                               status_code=exc.__dict__['status'],
-                              content_type="application/problem+json")
+                              content_type=ERROR_CONTENT_TYPE)
